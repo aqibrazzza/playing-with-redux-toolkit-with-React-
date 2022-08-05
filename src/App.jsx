@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { signupUser } from "./features/user/userSlice";
 
 export default function App() {
-	const signupState = useSelector((state) => state.signup);
+	const user = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -12,11 +12,11 @@ export default function App() {
 
 	return (
 		<div>
-			{signupState.isPending && <h3> Loading ...</h3>}
-			{signupState.user && (
+			{user.isPending && <h3> Loading ...</h3>}
+			{user.user && (
 				<>
-					<h1>{signupState.user.username} signed up. </h1>
-					<p> Email: {signupState.user.email}</p>
+					<h1>{user.user.username} signed up. </h1>
+					<p> Email: {user.user.email}</p>
 				</>
 			)}
 		</div>
